@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React, {useEffect, useState}from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -10,16 +10,13 @@ const SlideMenu = styled.div`
   margin: 0 auto;
   width: 456px;
   height: 50px;
-  border-bottom: 1px solid #ececec;;
-  /* background-color: #ececec; */
-  /* border: none; */
+  border-bottom: 1px solid #ececec;
   cursor: pointer;
-  padding: 3px;
   .textBox{
     z-index: 100;
     position: absolute;
     font-weight: 600;
-    p{
+    li{
       width: 153px;
       height: 50px;
       display: inline-block;
@@ -27,6 +24,9 @@ const SlideMenu = styled.div`
       line-height: 45px;
       transition: all 0.6s ease-out;
       color: rgba(0,0,0,0.4);
+    }
+    li:nth-child(${(props) => (Number(props.select)+ 1)}){
+      color: #444;
     }
   }
 `;
@@ -36,10 +36,10 @@ const Underline = styled.div`
   line-height: 50px;
   width: 150px;
   height: 2px;
-  margin-top: 45px;
-  background-color: green;
+  margin-top: 48px;
+  background-color: #11afaf;
   transition: all 0.5s ease-out;
-  margin-left: ${(props) => (Number(props.select)*150)+'px'};
+  margin-left: ${(props) => (Number(props.select)*153)+'px'};
 `;
 
 
@@ -48,18 +48,15 @@ const Tab = () => {
   const clickedSelect = (e) => {
     setSelect(e.target.getAttribute('data-value'));
   }
-  // const clickedselect = () => {
-  //   setselect((prev) => !prev);
-  // };
   return (
     <div>
       <Wrapper>
         <SlideMenu select={select}>
-          <div className='textBox'>
-            <p data-value='0' onClick={clickedSelect} style={{color : select === 0 ? 'red' : ''}}>감자</p>
-            <p data-value='1' onClick={clickedSelect} style={{color : select === 1 ? 'red' : ''}}>고구마</p>
-            <p data-value='2' onClick={clickedSelect} style={{color : select === 2 ? 'red' : ''}}>카레라이스</p>
-          </div>
+          <ul className='textBox'>
+            <li data-value='0' onClick={clickedSelect} >감자</li>
+            <li data-value='1' onClick={clickedSelect} >고구마</li>
+            <li data-value='2' onClick={clickedSelect} >카레라이스</li>
+          </ul>
           <Underline select={select}/>
         </SlideMenu>
       </Wrapper>
