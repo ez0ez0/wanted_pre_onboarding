@@ -17,9 +17,15 @@ const Wrapper = styled.div`
     span{
       float: right;
       line-height: 70px;
+      font-size: 15px;
+      color: #444;
+      opacity: 0.5;
     }
     span.left{
-      margin-right: 10px;
+      margin-right: 25px;
+      font-size: 18px;
+      font-weight: 600;
+      opacity: 1;
     }
   }
 `;
@@ -28,6 +34,12 @@ const Slide = styled.div`
   width: 500px;
   border-top: 6px solid #ececec;
   cursor: pointer;
+
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
   > ul.dot {
     width: 100%;
     display:flex;
@@ -54,11 +66,6 @@ const Slide = styled.div`
     display:flex;
     flex-direction: row;
     justify-content:space-between;
-    -ms-user-select: none; 
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
     /* position: relative;
     top:-13px; */
     > li {
