@@ -11,12 +11,4 @@
 body {
   width: 100vw;
   height: 100%;
-  overscroll-behavior-y: none;
-  overscroll-behavior-x: none;
-  scrollbar-width: none;
-  overflow: hidden;
-  touch-action: none;
-}
-*::-webkit-scrollbar {
-  display: none; /* Chrome , Safari , Opera */
 }
