@@ -47,12 +47,12 @@ const Input = () => {
     <Wrapper>
       <Box>
         <div className='title'>E-mail</div>
-        <input className='input' placeholder='E-mail'/>
+          <input className='input' placeholder='E-mail'/>
         <span className='red'>Invalid e-mail address.</span>
       </Box>
       <Box>
         <div className='title'>Password</div>
-        <input className='input' type='password' placeholder='Password'/>
+          <input className='input' type='password' placeholder='Password'/>
       </Box>
     </Wrapper>
   );
