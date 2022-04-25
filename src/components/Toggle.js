@@ -49,16 +49,17 @@ const Circle = styled.div`
 
 const Toggle = () => {
   const [toggle, setToggle] = useState(false);
-  const clickedToggle = () => {
-    setToggle((prev) => !prev);
+  const clickedToggle = (e) => {
+    let value = e.target.getAttribute('value');
+    value === 'left' ? setToggle(false) : setToggle(true);
   };
   return (
     <div>
       <Wrapper>
-        <ToggleBtn onClick={clickedToggle}>
+        <ToggleBtn>
           <div className='textBox'>
-            <p style={toggle? {} : {color: '#444'}}>기본</p>
-            <p style={toggle?{color: '#444'} : {}}>상세</p>
+            <p value='left' style={toggle? {} : {color: '#444'}} onClick={clickedToggle}>기본</p>
+            <p value='right' style={toggle?{color: '#444'} : {}} onClick={clickedToggle}>상세</p>
           </div>
           <Circle toggle={toggle} className={toggle? 'on': 'off'}/>
         </ToggleBtn>
